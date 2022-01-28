@@ -1,6 +1,6 @@
 FROM hadoop:2.7.2
 
-ENV SPARK_VERSION 2.0.2
+ENV SPARK_VERSION 2.4.8
 ENV SPARK_HADOOP_PROFILE 2.7
 
 ENV SPARK_BIN_URL https://www.apache.org/dist/spark/spark-$SPARK_VERSION/spark-$SPARK_VERSION-bin-without-hadoop.tgz
@@ -26,7 +26,7 @@ RUN chmod a+x \
     /spark-historyserver.sh \
     /spark-master.sh \
     /spark-slave.sh
-    
+
 RUN echo "export SPARK_DIST_CLASSPATH=$(hadoop classpath)" >> /opt/spark-$SPARK_VERSION/conf/spark-env.sh
 
 ENTRYPOINT ["/spark-entrypoint.sh"]

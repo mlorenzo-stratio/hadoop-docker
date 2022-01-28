@@ -2,7 +2,7 @@ version: '2'
 
 services:
   namenode:
-    image: hadoop-namenode
+    image: hadoop-namenode:2.7.2
     container_name: namenode
     hostname: namenode
     networks:
@@ -16,7 +16,7 @@ services:
       - ./hadoop.env
 
   resourcemanager:
-    image: hadoop-resourcemanager
+    image: hadoop-resourcemanager:2.7.2
     container_name: resourcemanager
     hostname: resourcemanager
     depends_on:
@@ -29,7 +29,7 @@ services:
       - ./hadoop.env
 
   historyserver:
-    image: hadoop-historyserver
+    image: hadoop-historyserver:2.7.2
     container_name: historyserver
     hostname: historyserver
     depends_on:
@@ -44,7 +44,7 @@ services:
       - ./hadoop.env
 
   spark:
-    image: hadoop-spark
+    image: hadoop-spark:2.7.2
     container_name: spark
     hostname: spark
     networks:
@@ -59,7 +59,7 @@ services:
     command: historyserver
 
   nodemanager1:
-    image: hadoop-nodemanager
+    image: hadoop-nodemanager:2.7.2
     container_name: nodemanager1
     hostname: nodemanager1
     depends_on:
@@ -74,7 +74,7 @@ services:
       - ./hadoop.env
 
   nodemanager2:
-    image: hadoop-nodemanager
+    image: hadoop-nodemanager:2.7.2
     container_name: nodemanager2
     hostname: nodemanager2
     depends_on:
@@ -89,7 +89,7 @@ services:
       - ./hadoop.env
 
   datanode1:
-    image: hadoop-datanode
+    image: hadoop-datanode:2.7.2
     container_name: datanode1
     hostname: datanode1
     depends_on:
@@ -104,7 +104,7 @@ services:
       - ./hadoop.env
 
   datanode2:
-    image: hadoop-datanode
+    image: hadoop-datanode:2.7.2
     container_name: datanode2
     hostname: datanode2
     depends_on:
