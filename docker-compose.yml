@@ -2,7 +2,7 @@ version: '2'
 
 services:
   namenode:
-    image: uhopper/hadoop-namenode
+    image: hadoop-namenode
     container_name: namenode
     hostname: namenode
     networks:
@@ -16,21 +16,21 @@ services:
       - ./hadoop.env
 
   resourcemanager:
-    image: uhopper/hadoop-resourcemanager
-    container_name: resourcemanager    
+    image: hadoop-resourcemanager
+    container_name: resourcemanager
     hostname: resourcemanager
     depends_on:
       - namenode
     networks:
       - hadoop
     environment:
-      constraint:node=: onet2 
+      constraint:node=: onet2
     env_file:
       - ./hadoop.env
 
   historyserver:
-    image: uhopper/hadoop-historyserver
-    container_name: historyserver    
+    image: hadoop-historyserver
+    container_name: historyserver
     hostname: historyserver
     depends_on:
       - namenode
@@ -44,7 +44,7 @@ services:
       - ./hadoop.env
 
   spark:
-    image: uhopper/hadoop-spark
+    image: hadoop-spark
     container_name: spark
     hostname: spark
     networks:
@@ -59,7 +59,7 @@ services:
     command: historyserver
 
   nodemanager1:
-    image: uhopper/hadoop-nodemanager
+    image: hadoop-nodemanager
     container_name: nodemanager1
     hostname: nodemanager1
     depends_on:
@@ -69,17 +69,17 @@ services:
       - hadoop
       - kafka
     environment:
-      constraint:node=: onet1       
+      constraint:node=: onet1
     env_file:
       - ./hadoop.env
 
   nodemanager2:
-    image: uhopper/hadoop-nodemanager
+    image: hadoop-nodemanager
     container_name: nodemanager2
     hostname: nodemanager2
     depends_on:
       - namenode
-      - resourcemanager    
+      - resourcemanager
     networks:
       - hadoop
       - kafka
@@ -87,10 +87,10 @@ services:
       constraint:node=: onet2
     env_file:
       - ./hadoop.env
-      
+
   datanode1:
-    image: uhopper/hadoop-datanode
-    container_name: datanode1    
+    image: hadoop-datanode
+    container_name: datanode1
     hostname: datanode1
     depends_on:
       - namenode
@@ -99,16 +99,16 @@ services:
     volumes:
       - hadoop_datanode1:/hadoop/dfs/data
     environment:
-      constraint:node=: onet1      
+      constraint:node=: onet1
     env_file:
       - ./hadoop.env
 
   datanode2:
-    image: uhopper/hadoop-datanode
-    container_name: datanode2    
+    image: hadoop-datanode
+    container_name: datanode2
     hostname: datanode2
     depends_on:
-      - namenode    
+      - namenode
     networks:
       - hadoop
     volumes:
@@ -117,7 +117,7 @@ services:
       constraint:node=: onet2
     env_file:
       - ./hadoop.env
-    
+
 networks:
   kafka:
     external: true
@@ -127,12 +127,12 @@ networks:
 volumes:
   hadoop_namenode:
     external: true
-    
+
   hadoop_datanode1:
     external: true
-    
+
   hadoop_datanode2:
     external: true
-    
+
   hadoop_historyserver:
     external: true
