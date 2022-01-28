@@ -1,3 +1,6 @@
+# **NOTE**
+### `main` branch is a copy of `hadoop-2.7` branch of https://bitbucket.org/uhopper/hadoop-docker/ repository
+
 # Hadoop Docker
 
 This repository contains *Dockerfile*s for setting up a basic Hadoop cluster.
