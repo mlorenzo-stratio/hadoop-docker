@@ -1,5 +1,5 @@
 # **NOTE**
-### `main` branch is a copy of `hadoop-2.7` branch of [https://bitbucket.org/uhopper/hadoop-docker/](https://bitbucket.org/uhopper/hadoop-docker/src/hadoop-2.7/) repository
+### `main` branch is a resuscitation of `hadoop-2.7` branch of [https://bitbucket.org/uhopper/hadoop-docker/](https://bitbucket.org/uhopper/hadoop-docker/src/hadoop-2.7/) repository. I just updated Dockerfiles so it would be able to build again
 
 # Hadoop Docker
 
